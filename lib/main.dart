@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Finance Apps',
+      title: 'Finance App',
       initialRoute: '/auth',
       routes: {
         '/auth': (context) => AuthPage(),
