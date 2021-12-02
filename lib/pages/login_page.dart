@@ -121,8 +121,6 @@ class LoginPage extends StatelessWidget {
                       child: TextButton(
                         onPressed: () async {
                           final token = await api.signIn(_emailController.text, _passwordController.text);
-                          print(token);
-                          print('Input email: ' + _emailController.text + ' Input password ' + _passwordController.text);
                           if (token != null) {
                             Navigator.pushAndRemoveUntil(
                               context,

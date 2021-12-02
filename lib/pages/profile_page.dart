@@ -45,7 +45,7 @@ class ProfilePage extends StatelessWidget {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     'Name',
@@ -67,6 +67,7 @@ class ProfilePage extends StatelessWidget {
                                               );
                                     }, 
                                   ),
+                                  const Divider(),
                                   Text(
                                     'Last Name',
                                     style: TextStyle(
@@ -87,6 +88,7 @@ class ProfilePage extends StatelessWidget {
                                               );
                                     }, 
                                   ),
+                                  const Divider(),
                                   Text(
                                     'Email',
                                     style: TextStyle(
@@ -196,6 +198,25 @@ class ProfilePage extends StatelessWidget {
               ),
             )
           ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor: Color.fromRGBO(53, 166, 91, 1),
+          unselectedItemColor: Colors.grey,
+          showUnselectedLabels: true,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.wallet_membership), 
+              label: 'Wallet'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.compare_arrows), 
+              label: 'Transactions'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.bar_chart_sharp), 
+              label: 'Analytics'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person), 
+              label: 'Profile'),
+          ],
         ),
       ),
     );

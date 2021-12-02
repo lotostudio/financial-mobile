@@ -13,11 +13,9 @@ class APIAuth {
           'password': password
         })
     );
-    print('Status code - ' + response.statusCode.toString() + ' with body ' + response.body);
     if(response.statusCode == 200) {
       final responseMsg = jsonDecode(response.body);
       final token = responseMsg['accessToken'];
-      print('This is token: $token');
       return token;
     } else {
       return null;
@@ -25,9 +23,6 @@ class APIAuth {
   }
 
   Future<String?> register(firstName, lastName, email, password) async {
-
-    bool regSuccess = false;
-
     final response = await http.post(
       Uri.parse("$URL/auth/register"),
       body: jsonEncode(<String, String>{
@@ -37,14 +32,9 @@ class APIAuth {
           'password': password
         })
     );
-    print('Response body - ' + response.body);
-    print('Status Code - ' + response.statusCode.toString());
     if (response.statusCode == 201) {
       final res = await signIn(email, password);
       return res;
-    } 
-    // else {
-    //   return regSuccess;
-    // }
+    }
   }
 }
