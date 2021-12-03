@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:finance_app/pages/profile_page.dart';
 import 'package:finance_app/services/api_auth_service.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +7,8 @@ class LoginPage extends StatelessWidget {
 
   final api = APIAuth();
 
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +66,7 @@ class LoginPage extends StatelessWidget {
                         children: [
                           Text('E-mail', style: TextStyle(fontFamily: 'Mulish')),
                           TextField(
-                            controller: _emailController,
+                            controller: _email,
                             keyboardType: TextInputType.emailAddress,
                             decoration: const InputDecoration(
                               enabledBorder: OutlineInputBorder(
@@ -95,7 +93,7 @@ class LoginPage extends StatelessWidget {
                         children: [
                           Text('Password', style: TextStyle(fontFamily: 'Mulish')),
                           TextField(
-                            controller: _passwordController,
+                            controller: _password,
                             decoration: const InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.all(
@@ -120,7 +118,7 @@ class LoginPage extends StatelessWidget {
                       margin: EdgeInsets.only(top: 15, bottom: 20),
                       child: TextButton(
                         onPressed: () async {
-                          final token = await api.signIn(_emailController.text, _passwordController.text);
+                          final token = await api.signIn(_email.text, _password.text);
                           if (token != null) {
                             Navigator.pushAndRemoveUntil(
                               context,

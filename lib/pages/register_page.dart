@@ -1,5 +1,3 @@
-import 'package:finance_app/pages/auth_page.dart';
-import 'package:finance_app/pages/login_page.dart';
 import 'package:finance_app/pages/profile_page.dart';
 import 'package:finance_app/services/api_auth_service.dart';
 import 'package:flutter/material.dart';
